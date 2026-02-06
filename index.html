@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cinema Seat Layout</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="movie-name">Interstellar</div>
+        <div class="show-time">Today • 7:30 PM</div>
+    </nav>
+
+    <!-- MAIN LAYOUT -->
+    <main class="main-container">
+        <div class="seat-layout">
+
+            <!-- SINGLE ROW (20 SEATS) -->
+            <div class="seat-row">
+                <div class="seat"></div>
+                <div class="seat"></div>
+                <div class="seat occupied"></div>
+                <div class="seat"></div>
+                <div class="seat"></div>
+                <div class="seat selected"></div>
+                <div class="seat occupied"></div>
+                <div class="seat"></div>
+                <div class="seat"></div>
+                <div class="seat"></div>
+
+                <div class="seat"></div>
+                <div class="seat"></div>
+                <div class="seat"></div>
+                <div class="seat occupied"></div>
+                <div class="seat"></div>
+                <div class="seat"></div>
+                <div class="seat"></div>
+                <div class="seat"></div>
+                <div class="seat occupied"></div>
+                <div class="seat"></div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="legend">
+            <div class="legend-item">
+                <span class="legend-box empty"></span> Available
+            </div>
+            <div class="legend-item">
+                <span class="legend-box occupied"></span> Occupied
+            </div>
+            <div class="legend-item">
+                <span class="legend-box selected"></span> Selected
+            </div>
+        </div>
+
+        <div class="booking-info">
+            <span class="ticket-count">Tickets Selected: 0</span>
+            <button class="book-btn">Book Tickets</button>
+        </div>
+    </footer>
+
+</body>
+
+</html>

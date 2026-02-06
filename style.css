@@ -1,0 +1,171 @@
+:root {
+    --bg: #f8fafc;
+    --surface: #ffffff;
+    --accent: #2563eb;
+    --seat-available: #e5e7eb;
+    --seat-occupied: #9ca3af;
+    --seat-selected: #22c55e;
+    --text-primary: #0f172a;
+    --text-secondary: #475569;
+    --border: #e2e8f0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", sans-serif;
+}
+
+body {
+    background-color: var(--bg);
+    color: var(--text-primary);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ---------- NAVBAR ---------- */
+.navbar {
+    background-color: var(--surface);
+    padding: 18px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border);
+}
+
+.movie-name {
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.show-time {
+    font-size: 14px;
+    color: var(--text-secondary);
+}
+
+/* ---------- MAIN ---------- */
+.main-container {
+    flex: 1;
+    padding: 50px 40px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.seat-layout {
+    background-color: var(--surface);
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    width: 100%;
+    max-width: 1100px;
+    padding: 15px 40px;
+    border-radius: 18px;
+    border: 1px solid var(--border);
+}
+
+/* ---------- SEAT ROW ---------- */
+.seat-row {
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+}
+
+.seat {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    background-color: var(--seat-available);
+    cursor: pointer;
+    transition:
+        transform 0.15s ease,
+        background-color 0.15s ease;
+}
+
+.seat:hover {
+    scale: 1.05;
+    background-color: var(--accent);
+}
+
+.seat.occupied {
+    background-color: var(--seat-occupied);
+    cursor: not-allowed;
+}
+
+.seat.selected {
+    background-color: var(--seat-selected);
+}
+
+/* ---------- FOOTER ---------- */
+.footer {
+    background-color: var(--surface);
+    padding: 24px 40px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 24px;
+}
+
+/* ---------- LEGEND ---------- */
+.legend {
+    display: flex;
+    gap: 24px;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    color: var(--text-secondary);
+}
+
+.legend-box {
+    width: 18px;
+    height: 18px;
+    border-radius: 5px;
+}
+
+.legend-box.empty {
+    background-color: var(--seat-available);
+}
+
+.legend-box.occupied {
+    background-color: var(--seat-occupied);
+}
+
+.legend-box.selected {
+    background-color: var(--seat-selected);
+}
+
+/* ---------- BOOKING ---------- */
+.booking-info {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.ticket-count {
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.book-btn {
+    background-color: var(--accent);
+    color: #ffffff;
+    padding: 12px 26px;
+    border: none;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.book-btn:hover {
+    background-color: #1d4ed8;
+}
