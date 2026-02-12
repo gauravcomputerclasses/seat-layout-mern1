@@ -33,29 +33,38 @@ container.appendChild(fragment);
 
 // Selecting Seats
 container.addEventListener("click", (e) => {
-    if (e.target.classList.contains("seat")) {
-        const isSlected = e.target.classList.toggle("selected");
+    if (
+        e.target.classList.contains("seat") &&
+        !e.target.classList.contains("occupied")
+    ) {
+        const isSelected = e.target.classList.toggle("selected");
 
-        if (isSlected) {
+        if (isSelected) {
             selectedSeats.push(e.target.dataset.seatNumber);
-            console.log(selectedSeats);
         } else {
             let index = selectedSeats.indexOf(e.target.dataset.seatNumber);
             selectedSeats.splice(index, 1);
-            console.log(selectedSeats);
         }
     }
 });
 
 // seat ko book kr rahe hai
 btn.addEventListener("click", () => {
-    const seats = document.querySelectorAll(".seat");
-    seats.forEach((seat) => {
-        selectedSeats.forEach((sSeat) => {
-            if (seat.dataset.seatNumber === sSeat) {
-                seat.classList.remove("selected");
-                seat.classList.add("occupied");
-            }
+    if (selectedSeats.length === 0) {
+        alert("No Seats Are Selected");
+        return;
+    }
+    let a = confirm(
+        `Selected seats are - ${selectedSeats.map((seat) => seat)}`,
+    );
+    if (a) {
+        selectedSeats.forEach((seat) => {
+            let seatDiv = document.querySelector(
+                `.seat[data-seat-number=${seat}]`,
+            );
+            seatDiv.classList.remove("selected");
+            seatDiv.classList.add("occupied");
         });
-    });
+        selectedSeats.length = 0;
+    }
 });
