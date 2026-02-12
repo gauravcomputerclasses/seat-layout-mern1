@@ -6,11 +6,13 @@
 // String.fromCharCode(num)
 
 const selectedSeats = [];
+let occupied = [];
 
 let container = document.querySelector(".seat-layout");
 let fragment = document.createDocumentFragment();
 let btn = document.querySelector(".book-btn");
-let count = document.querySelector(".count")
+let count = document.querySelector(".count");
+let occSeats = JSON.parse(localStorage.getItem("Booked Tickets"));
 
 // Creating Rows
 for (let i = 65; i <= 71; i++) {
@@ -22,8 +24,14 @@ for (let i = 65; i <= 71; i++) {
     for (let j = 1; j <= 20; j++) {
         let seat = document.createElement("div");
         seat.classList.add("seat");
-        seat.dataset.seatNumber = rowChar + j;
-        seat.innerText = rowChar + j;
+        let seatNumber = rowChar + j;
+        seat.dataset.seatNumber = seatNumber;
+        seat.innerText = seatNumber;
+        occSeats.forEach((seats) => {
+            if (seats === seatNumber) {
+                seat.classList.add("occupied");
+            }
+        });
         row.appendChild(seat);
     }
 
@@ -46,7 +54,7 @@ container.addEventListener("click", (e) => {
             let index = selectedSeats.indexOf(e.target.dataset.seatNumber);
             selectedSeats.splice(index, 1);
         }
-        count.innerText = selectedSeats.length
+        count.innerText = selectedSeats.length;
     }
 });
 
@@ -66,7 +74,9 @@ btn.addEventListener("click", () => {
             );
             seatDiv.classList.remove("selected");
             seatDiv.classList.add("occupied");
+            occSeats.push(seat);
         });
+        localStorage.setItem("Booked Tickets", JSON.stringify(occSeats));
         selectedSeats.length = 0;
     }
 });
