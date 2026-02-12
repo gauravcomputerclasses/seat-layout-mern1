@@ -10,6 +10,7 @@ const selectedSeats = [];
 let container = document.querySelector(".seat-layout");
 let fragment = document.createDocumentFragment();
 let btn = document.querySelector(".book-btn");
+let count = document.querySelector(".count")
 
 // Creating Rows
 for (let i = 65; i <= 71; i++) {
@@ -45,6 +46,7 @@ container.addEventListener("click", (e) => {
             let index = selectedSeats.indexOf(e.target.dataset.seatNumber);
             selectedSeats.splice(index, 1);
         }
+        count.innerText = selectedSeats.length
     }
 });
 
